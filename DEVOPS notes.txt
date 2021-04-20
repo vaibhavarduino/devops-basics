@@ -1,0 +1,228 @@
+What is SDLC?
+software developement lifecycle
+
+Lifecycle models
+1.Water flow(irriversible model)
+2.Agile mode(Split project into multiple parts known as Sprint)
+3.continuous integration continuous deployement
+
+Why we need devops?
+faster delivery
+higher quality
+less capex opex
+reduced outage
+
+---SDLC Waterfall model----
+developers(github for version mngmnt)
+  |
+  |
+Build (maven deploy to test server)
+  |
+  |
+test(selenium)
+  |
+  |
+QA
+
+
+Deploy(chef/ansible/docker/puppet deploy to production servr)
+|
+|
+manintainance
+|
+|
+monitoring(nagios/cloudwatch)
+
+part 1st handled by dev team and 2nd will be managed by operation team,so every morning meeting for syncing of both team called as scrum/sync meeting.
+
+there are diffrnt products by csps
+azure-azure devops,azure repos, azure artifect
+aws-aws codecommit,cloudwatch,code deploy,codepipeline
+
+but in practical maven,ansible,puppet,chef,nagios, mostly used because of open source and cross platform capable.
+(devops-implementing automation to each and every stages)
+
+git-(version control)--maintains version of code
+continuous integration--complie validate,review,unit testing,integration testing (eg-jenkins)
+continuous delivery--deploying to test server(eg.maven)
+contious deployement--deploying test app on production server
+
+
+
+Agile(Build Short Build Often)
+consider 1,2 3..blocks known as sprint
+
+sprint1-login logout page 
+sprint2-images and data contents
+sprint3-payment gateway
+...and so on...
+Also called as scrum framework.
+
+
+Now coming to Linux part
+What is Linux?
+linux is opensource operatiing system that directly manages system hardware resources.
+developed by linus torward in 1991 created from scratch...invented free linux kernel by taking refernece of unix and minix.
+
+because unix was not opensource that time.following are most used flavors
+IBM(AIX)
+SUN(SOLARIS)
+MACOS
+HP(UX)
+ 
+Linux flavours
+redhat
+fedora
+debian
+ubuntu(3rd largest used in world)
+other(centos,amazon os) 
+
+diffrence between windows and linux
+windows flow
+user
+shell
+os
+hardware
+
+linux flow
+user 
+shell
+kernal
+hardware
+
+terms used in linux
+folder-directory
+administrator-root user
+software-package
+file-file
+
+now file system herarchy
+/
+/root--contains users data
+/home--other users data
+/bin--comands used by root user and other user
+/sbin--commands used by root user only
+/dev--contains all devices information
+/opt--optional folder for software installation
+/etc--contains all configuration files
+/boot--contains all boot information
+/usr--default software installation folder
+
+file commands
+1.cat
+u can create and write new file.cant edit with this command.
+also concatinate two or more files into single file
+
+2.touch
+touch command used to create empty file.or multiple files at once.
+also used this command for managing stat of the files
+ex.access date
+   modify date
+   change date
+
+3.vi/vim
+ vi editor is mostly used editor.because it is by defaukt available in all version of linux.
+you can create or modify file using vim
+
+4.nano
+ nano editor is not installed by default on all version of linux.apart from vim editor in nano command or shortcut information given in editor's last line.
+
+[LAB]
+ls -l
+-rw-r--r--    1 root     root           114 Jul  5  2020 bench.py
+-rw-r--r--    1 root     root            22 Jun 26  2020 hello.js
+-rw-r--r--    1 root     root           151 Jul  5  2020 readme.txt
+
+cat > file1
+create file 1.
+
+cat file1 file2 > file12
+also concatinate both files
+
+touch file1
+creates empty file1.
+
+touch file1 file2 file3
+creates multiple empty files.
+
+vi 
+:w --write n save file
+:wq--write and quit
+:q-- quit without saving
+:q!--exit forcefully
+
+nano
+ctrl+x for closing file
+
+
+Directory commands
+
+ls -l   --list all folder contains
+ls -a  --show all contains including hidden files/folders
+
+1.mkdir folder1
+  create directory
+2.mkdir -p /folder1/folder2/folder3
+  creates all folders and inside folders
+  as / showing in starting it means folder path is in root folder.
+3.cd
+ current directory
+4.cd..
+ get one step back from current folder
+5.pwd
+ print current working directory
+6.mkdir folder1 folder2 folder3
+ creates all 3 folders
+7.rm dir1 dir2
+ remove folders named dir1 dir2
+8.rm -rf
+ remove forcefully
+ eg. rm -rf dir1
+
+
+file operation commands
+
+(copy)
+ cp file1 file2
+ copying content of file1 to file2
+
+(moving)
+ mv file1 file2
+ moving content of file1 to file2
+ 
+ mv file1 folder2
+ moving file1 to folder2
+
+hostname(show hostname)
+hostname -i (only show ip address)
+yum(yellowdog updater modifier)
+yum manager is most popular and installed in almost all linux.
+
+yum install httpd (installs httpd service)
+yum remove httpd  (removes httpd service)
+service httpd status (show httpd status)
+service httpd start  (start service)
+chkconfig httpd on  (register service as startup service) 
+chkconfig httpd off  (removes from startup services)
+which chef  (you can check chef installed or not with which command)
+whoomi  (name of current user)
+echo "hello" (shows hello output on all terminals at same time)
+echo "hello" > file1 (save this hello output in file1)
+grep(grep used to find word or phrase in text)
+eg. grep root /etc/password (find root word from file password)
+sort (sort file contains alphabetically)
+yum install tree(install tree package if not installed)
+tree (shows folders files as binary tree)
+e.g dir11
+     |
+     |dir12
+        |
+        |dir32
+
+User/group add commands
+useradd mayur(creates user named mayur)
+cat /etc/passwd (last line shows recently added user)
+in this case automatically group gets added named as mayur.
+
+groupadd tesla (creates group as tesla)
+cat /etc/group
